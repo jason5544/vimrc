@@ -1,4 +1,4 @@
-# vimrc
+# vimrc 配置文件
 
 针对 ubuntu 16.o4
 
