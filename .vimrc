@@ -14,21 +14,19 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-scripts/winmanager'
+" Plugin 'vim-scripts/winmanager'
 
 Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'bling/vim-airline'
-
 Plugin 'ctags.vim'
 
-Plugin 'taglist.vim'
+" Plugin 'taglist.vim'
 
 Plugin 'todolist.vim'
 
 Plugin 'EasyGrep'
 
-" Plugin 'Tagbar'
+Plugin 'Tagbar'
 
 Plugin 'a.vim'
 
@@ -40,11 +38,9 @@ Plugin 'vim-scripts/indentpython.vim'
 
 Plugin 'scrooloose/syntastic'
 
-" Plugin 'jistr/vim-nerdtree-tabs'
-
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'vim-scripts/tComment'
 
@@ -57,6 +53,12 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 
 Plugin 'vim-scripts/vim-auto-save'
+
+Plugin 'scrooloose/nerdtree'
+
+" Plugin 'vim-airline/vim-airline'
+
+" Plugin 'vim-airline/vim-airline-themes'
 
 " Plugin 'Shougo/vimshell.vim'
 
@@ -88,10 +90,6 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""" 显示相关  """"""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guicursor=n-v-c:hor20
-set guicursor=a:block-blinkon0
-
-"set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 
 "winpos 5 5          " 设定窗口位置  
 
@@ -123,7 +121,7 @@ set showcmd         " 输入的命令显示出来，看的清楚些
 
 set novisualbell    " 不要闪烁(不明白)  
 
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 
 set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
 
@@ -135,30 +133,6 @@ set foldmethod=manual   " 手动折叠
 
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
 
-" 显示中文帮助
-
-if version >= 603
-
-    set helplang=cn
-
-    set encoding=utf-8
-
-endif
-
-" 设置配色方案
-
-"colorscheme murphy
-
-"字体 
-
-"if (has("gui_running")) 
-
-"   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 
-
-"endif 
-
-
- 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
 set termencoding=utf-8
@@ -243,6 +217,17 @@ func SetTitle()
 
 endfunc 
 
+"""""""""""""""""""""""""""""""""""""""""py文件头"""""""""""""""""""""""""""""""""""""
+autocmd bufnewfile *.py call HeaderPython()
+function HeaderPython()
+    call setline(1, "#!/usr/bin/env python")
+    call append(1, "# -*- coding: utf-8 -*-")
+    normal G
+    normal o
+    normal o
+endf
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""键盘命令""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -258,11 +243,11 @@ map <C-A> ggVGY
 
 map! <C-A> <Esc>ggVGY
 
-"map <F12> gg=G
+map <F12> gg=G
 
 " 选中状态下 Ctrl+c 复制
 
-vmap <C-c> "+y
+vmap <C-C> "+y
 
 """""""""黏贴"""""""""""""
 nmap <C-V> "+p
@@ -381,7 +366,7 @@ set guioptions-=T           " 隐藏工具栏
 
 set guioptions-=m           " 隐藏菜单栏
 
-"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
 
 " 设置在状态行显示的信息
 
@@ -463,9 +448,9 @@ set gdefault
 
 "编码设置
 
-set enc=utf-8
-
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+" set enc=utf-8
+"
+" set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
 "语言设置
 
@@ -475,9 +460,9 @@ set helplang=cn
 
 " 我的状态行显示的内容（包括文件类型和解码）
 
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
-"set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
+" set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
 
 " 总是显示状态行
 
@@ -598,8 +583,6 @@ filetype plugin indent on
 set completeopt=longest,menu
 
 
-
-
 """"""""""""""""""""""""""""""""""""""" CTags的设定  """"""""""""""""""""""""""""
 
 
@@ -631,27 +614,23 @@ set tags=tags
 """"""""""""""""""""""""""""""" minibufexpl插件的一般设置""""""""""""""""""""""
 
 let g:miniBufExplMapWindowNavVim = 1
-
 let g:miniBufExplMapWindowNavArrows = 1
-
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 
-"默认打开Taglist 
-let Tlist_Auto_Open=1 
-
 """"""""""""""""""""""""""""""""""" Tag list (ctags) """"""""""""""""""""""""""""
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
-let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
+" let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
+" let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
+" let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+" let Tlist_Auto_Open=1 "默认打开Taglist 
 
 
 """"""""""""""""""""""""""""""""""""""""" winManage 配置""""""""""""""""""""""""""
-let g:winManagerWindowLayout='FileExplorer|TagList'
-
-nmap wm :WMToggle<cr>
+" let g:winManagerWindowLayout='FileExplorer|TagList'
+"
+" nmap wm :WMToggle<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""cscope 配置""""""""""""""""""""""""""""""""
@@ -699,8 +678,8 @@ map <F9> :set paste<CR>
 map <F10> :set nopaste<CR> 
 
 
-"""""""""""""""""""""""""""""""" ycm setting""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+"""""""""""""""""""""""""""""""" youcompleteme setting""""""""""""""""""""""""""""""
+let g:ycm_global_ycm_extra_conf='/home/triumph/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf=0
@@ -708,14 +687,16 @@ let g:ycm_key_invoke_completion = '<C-/>'
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 """""""""""""""""""""""""""""""""""tagbar"""""""""""""""""""""""""""""""
-""nmap <Leader>tb :TagbarToggle<CR>
-""let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-""let g:tagbar_width=20
-""autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
+
+autocmd BufRead *.* nmap tb :Tagbar<cr>
+let tagbar_ctags_bin='/usr/local/bin/ctags'
+let tagbar_width=30
+let g:tagbar_compact = 1
+let g:tagbar_autoshowtag = 1
 
 
 """""""""""""""""""""""""""""""""""""a.vim"""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F12> :A<CR>
+" nnoremap <silent> <F12> :A<CR>
 
 """"""""""""""""""""""""""""""""""""snipet""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -743,3 +724,16 @@ let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 let g:auto_save_silent = 1  " do not display the auto-save notification
+
+"""""""""""""""""""""""""""""""""""NERD Tree""""""""""""""""""""""""""""""""""""
+"不显示帮助信息
+ let NERDTreeMinimalUI=1
+"鼠标点击							 
+ let NERDTreeMouseMode = 2
+"宽度
+ let g:NERDTreeWinSize = 20 
+"忽略文件、隐藏文件
+ let NERDTreeIgnore = ['\.pyc$', '\.o$', 'cscope.*','tags']
+let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
+ nmap wm :NERDTreeToggle<cr>
+
