@@ -736,4 +736,11 @@ let g:auto_save_silent = 1  " do not display the auto-save notification
  let NERDTreeIgnore = ['\.pyc$', '\.o$', 'cscope.*','tags']
 let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
  nmap wm :NERDTreeToggle<cr>
-
+"分割窗口移动快捷键
+ nnoremap <c-h> <c-w>h
+ nnoremap <c-j> <c-w>j
+ nnoremap <c-k> <c-w>k
+ nnoremap <c-l> <c-w>l
+"autocmd BufRead *.py :NERDTreeToggle
+"关闭窗口
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
