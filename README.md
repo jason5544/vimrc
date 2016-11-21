@@ -1,6 +1,7 @@
 # vimrc
 安装teminator
 $ sudo apt-get intall teminator
+复制配置文件到~/.config/terminator/
 
 安装vundle
 $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
