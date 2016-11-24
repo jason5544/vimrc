@@ -744,3 +744,5 @@ let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 "autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+:inoremap <C-L> <ESC>la
+:inoremap <C-H> <ESC>i
