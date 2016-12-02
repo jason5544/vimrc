@@ -220,7 +220,7 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""py文件头"""""""""""""""""""""""""""""""""""""
 autocmd bufnewfile *.py call HeaderPython()
 function HeaderPython()
-    call setline(1, "#!/usr/bin/env python")
+    call setline(1, "#!/usr/bin/env python3")
     call append(1, "# -*- coding: utf-8 -*-")
     normal G
     normal o
@@ -412,7 +412,7 @@ set shiftwidth=4
 
 " 不要用空格代替制表符
 
-set noexpandtab
+set expandtab
 
 " 在行和段开始处使用制表符
 
@@ -542,7 +542,7 @@ set smartindent
 
 " 高亮显示普通txt文件（需要txt.vim脚本）
 
-au BufRead,BufNewFile *  setfiletype txt
+" au BufRead,BufNewFile *  setfiletype txt
 
 "自动补全
 
@@ -550,7 +550,7 @@ au BufRead,BufNewFile *  setfiletype txt
 
 :inoremap ) <c-r>=ClosePair(')')<CR>
 
-:inoremap { {<CR>}<ESC>O
+:inoremap { {}<ESC>i
 
 :inoremap } <c-r>=ClosePair('}')<CR>
 
@@ -575,6 +575,10 @@ function! ClosePair(char)
     endif
 
 endfunction
+
+"""""""""""""""""插入模式下跳出括号""""""""""""""""""""
+:inoremap <C-L> <ESC>la
+:inoremap <C-H> <ESC>i
 
 filetype plugin indent on 
 
@@ -612,11 +616,11 @@ set tags=tags
 
 
 """"""""""""""""""""""""""""""" minibufexpl插件的一般设置""""""""""""""""""""""
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+"
+" let g:miniBufExplMapWindowNavVim = 1
+" let g:miniBufExplMapWindowNavArrows = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplModSelTarget = 1
 
 
 """"""""""""""""""""""""""""""""""" Tag list (ctags) """"""""""""""""""""""""""""
@@ -689,7 +693,7 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 """""""""""""""""""""""""""""""""""tagbar"""""""""""""""""""""""""""""""
 
 autocmd BufRead *.* nmap tb :Tagbar<cr>
-let tagbar_ctags_bin='/usr/local/bin/ctags'
+let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -744,3 +748,7 @@ let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 "autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+""""""""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""
+let g:user_emmet_expandabbr_key = '<C-e>'
