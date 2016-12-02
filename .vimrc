@@ -73,7 +73,7 @@ Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required 允许插件
+filetype plugin indent on    " required 允许插件,根据文件类型使用相应插件
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -276,7 +276,7 @@ set autoread
 
 "代码补全 
 
-set completeopt=preview,menu 
+set completeopt=menu 
 
 
 "共享剪贴板  
