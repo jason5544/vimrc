@@ -1,7 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""Vundle"""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
+
+set nocompatible              " be iMproved, required 不要使用vi的键盘模式，而是vim自己的
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -72,7 +73,7 @@ Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on    " required 允许插件
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -277,9 +278,6 @@ set autoread
 
 set completeopt=preview,menu 
 
-"允许插件  
-
-filetype plugin on
 
 "共享剪贴板  
 
@@ -303,25 +301,15 @@ set cursorline              " 突出显示当前行
 
 set magic                   " 设置魔术
 
-" set guioptions-=T           " 隐藏工具栏
-
-" set guioptions-=m           " 隐藏菜单栏
-
-set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
 
 " 设置在状态行显示的信息
 
-set foldcolumn=0
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
 
-set foldmethod=indent 
+" 总是显示状态行 1 为开始时显示， 2为总是显示
 
-set foldlevel=3 
+set laststatus=2
 
-set foldenable              " 开始折叠
-
-" 不要使用vi的键盘模式，而是vim自己的
-
-set nocompatible
 
 " 语法高亮
 
@@ -341,7 +329,8 @@ set autoindent
 
 set cindent
 
-" Tab键的宽度
+
+""""""""""""""" Tab键的宽度""""""""""""""""
 
 set tabstop=4
 
@@ -387,11 +376,6 @@ set incsearch
 
 set gdefault
 
-"编码设置
-
-" set enc=utf-8
-"
-" set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
 "语言设置
 
@@ -399,33 +383,9 @@ set langmenu=zh_CN.UTF-8
 
 set helplang=cn
 
-" 我的状态行显示的内容（包括文件类型和解码）
-
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
-" set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
-
-" 总是显示状态行
-
-set laststatus=2
-
 " 命令行（在状态行下）的高度，默认为1，这里是2
 
-set cmdheight=2
-
-" 侦测文件类型
-
-filetype on
-
-" 载入文件类型插件
-
-filetype plugin on
-
-" 为特定文件类型载入相关缩进文件
-
-filetype indent on
-
-" 保存全局变量
+set cmdheight=1
 
 set viminfo+=!
 
@@ -481,11 +441,8 @@ set scrolloff=3
 
 set smartindent
 
-" 高亮显示普通txt文件（需要txt.vim脚本）
 
-" au BufRead,BufNewFile *  setfiletype txt
-
-"自动补全
+"自动补全括号
 
 :inoremap ( ()<ESC>i
 
@@ -522,15 +479,7 @@ endfunction
 :inoremap <C-L> <ESC>la
 :inoremap <C-H> <ESC>i
 
-filetype plugin indent on 
-
-"打开文件类型检测, 加了这句才可以用智能补全
-
-set completeopt=longest,menu
-
-set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
-
-""""""""""""""""""""编码""""""""""""""""""""
+""""""""""""""""""""编码设置""""""""""""""""""""
 
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
@@ -672,6 +621,9 @@ let g:UltiSnipsEditSplit="vertical"
 """"""""""""""""""""""""""""""""""""折叠栏""""""""""""""""""""""""""""""""""""
 "--fold setting--
 " set foldmethod=syntax " 用语法高亮来定义折叠
+
+set foldmethod=indent 
+set foldenable              " 开始折叠
 set foldlevel=100 " 启动vim时不要自动折叠代码
 set foldcolumn=3  "设置折叠栏宽度
 ""set nofoldenable
