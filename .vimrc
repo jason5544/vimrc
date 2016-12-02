@@ -410,7 +410,7 @@ set softtabstop=4
 
 set shiftwidth=4
 
-" 不要用空格代替制表符
+" 用空格代替制表符
 
 set expandtab
 
