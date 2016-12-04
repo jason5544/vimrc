@@ -135,31 +135,13 @@ func SetTitle()
 
     endif
 
-    " if &filetype == 'cpp'
-    "
-    "     call append(line(".")+6, "#include <iostream>")
-    "
-    "     call append(line(".")+7, "using namespace std;")
-    "
-    "     call append(line(".")+8, "")
-    "
-    " endif
-    "
-    " if &filetype == 'c'
-    "
-    "     call append(line(".")+6, "#include <stdio.h>")
-    "
-    "     call append(line(".")+7, "")
-    "
-    " endif
-
     "新建文件后，自动定位到文件末尾
 
     autocmd BufNewFile * normal G
 
 endfunc 
 
-"""""""""""""""""""""""""""""""""""""""""py文件头"""""""""""""""""""""""""""""""""""""
+"""""""""""""py文件头""""""""""""""""""""""""""
 autocmd bufnewfile *.py call HeaderPython()
 function HeaderPython()
     call setline(1, "#!/usr/bin/env python3")
@@ -283,9 +265,6 @@ set completeopt=menu
 
 set clipboard+=unnamed 
 
-"从不备份  
-
-set nobackup
 
 "make 运行
 
@@ -310,7 +289,6 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 
 set laststatus=2
 
-
 " 语法高亮
 
 set syntax=on
@@ -329,6 +307,9 @@ set autoindent
 
 set cindent
 
+" 为C程序提供自动缩进
+
+" set smartindent
 
 """"""""""""""" Tab键的宽度""""""""""""""""
 
@@ -376,13 +357,12 @@ set incsearch
 
 set gdefault
 
-
 "语言设置
 
-set langmenu=zh_CN.UTF-8
-
-set helplang=cn
-
+" set langmenu=zh_CN.UTF-8
+"
+" set helplang=cn
+"
 " 命令行（在状态行下）的高度，默认为1，这里是2
 
 set cmdheight=1
@@ -437,12 +417,7 @@ set matchtime=1
 
 set scrolloff=3
 
-" 为C程序提供自动缩进
-
-set smartindent
-
-
-"自动补全括号
+"""""""""自动补全括号""""""""""""""""""""
 
 :inoremap ( ()<ESC>i
 
@@ -475,19 +450,17 @@ function! ClosePair(char)
 
 endfunction
 
-"""""""""""""""""插入模式下跳出括号""""""""""""""""""""
+""""""""""插入模式下跳出括号""""""""""""""""""""
 :inoremap <C-L> <ESC>la
 :inoremap <C-H> <ESC>i
 
 """"""""""""""""""""编码设置""""""""""""""""""""
 
-set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
 set termencoding=utf-8
 
 set encoding=utf-8
-
-set fileencodings=ucs-bom,utf-8,cp936
 
 set fileencoding=utf-8
 
@@ -573,14 +546,16 @@ if has("cscope")
 
 endif
 
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> 
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR> 
+" nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> 
+" nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+" nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> 
+"
+    
 " map g<C-]>:cs find 3 <C-R>=expand(“<cword>”)<CR><CR>
 " map g<C-/>:cs find 0 <C-R>=expand(“<cword>”)<CR><CR>
 
