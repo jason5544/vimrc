@@ -291,7 +291,7 @@ set laststatus=2
 
 " 语法高亮
 
-set syntax=on
+syntax on
 
 " 去掉输入错误的提示声音
 
@@ -301,15 +301,9 @@ set noeb
 
 set confirm
 
-" 自动缩进
+" 智能缩进，其他模式autoindent, cindent
 
-set autoindent
-
-set cindent
-
-" 为C程序提供自动缩进
-
-" set smartindent
+set smartindent
 
 """"""""""""""" Tab键的宽度""""""""""""""""
 
@@ -424,6 +418,7 @@ set scrolloff=3
 :inoremap ) <c-r>=ClosePair(')')<CR>
 
 " :inoremap { {}<ESC>i
+
 :inoremap { {<CR>}<ESC>O
 
 :inoremap } <c-r>=ClosePair('}')<CR>
