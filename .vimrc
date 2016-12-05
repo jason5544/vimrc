@@ -318,7 +318,7 @@ set shiftwidth=4
 set textwidth=0 
 
 " 不要自动折断
-set nowrap
+" set nowrap
 
 " 要用空格代替制表符
 set expandtab
