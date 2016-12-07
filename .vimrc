@@ -53,9 +53,15 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'mattn/emmet-vim'
 
-Plugin 'vim-scripts/vim-auto-save'
+" Plugin 'vim-scripts/vim-auto-save'
 
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'godlygeek/tabular'
+
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'suan/vim-instant-markdown'
 
 " Plugin 'vim-airline/vim-airline'
 
@@ -244,6 +250,11 @@ func! Rungdb()
 
 endfunc
 
+""""""""""插入模式下跳出括号""""""""""""""""""""
+:inoremap <C-L> <ESC>la
+:inoremap <C-H> <ESC>i
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""实用设置""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -252,14 +263,17 @@ endfunc
 
 set autoread
 
+"自动保存
+
+set autowrite
+
 " quickfix模式
 
-""autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
+"autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 
 "代码补全 
 
 set completeopt=menu 
-
 
 "共享剪贴板  
 
@@ -270,15 +284,12 @@ set clipboard+=unnamed
 
 "":set makeprg=g++\ -Wall\ \ %
 
-"自动保存
 
-set autowrite
+" set ruler                   " 打开状态栏标尺
 
-set ruler                   " 打开状态栏标尺
+" set cursorline              " 突出显示当前行
 
-set cursorline              " 突出显示当前行
-
-set magic                   " 设置魔术
+" set magic                   " 设置魔术
 
 
 " 设置在状态行显示的信息
@@ -333,14 +344,16 @@ set number
 
 set history=1000
 
-"禁止生成临时文件
+"临时文件
 
-set nobackup
+set backup
+set backupdir=~/.vim/backup
 
-set noswapfile
+" set nobackup
+" set noswapfile
+
 
 "搜索忽略大小写
-
 set ignorecase
 
 "搜索逐字符高亮
@@ -446,10 +459,6 @@ function! ClosePair(char)
     endif
 
 endfunction
-
-""""""""""插入模式下跳出括号""""""""""""""""""""
-:inoremap <C-L> <ESC>la
-:inoremap <C-H> <ESC>i
 
 """"""""""""""""""""编码设置""""""""""""""""""""
 
@@ -604,13 +613,13 @@ set foldcolumn=3  "设置折叠栏宽度
 """"""""""""""""""""""""""""""""""""easymotion""""""""""""""""""""""""""""""""
 let g:EasyMotion_leader_key='<Space>'
 
-
-"""""""""""""""""""""'""""""""""'""autosave""'""""""""""'"""""""""""""""""""""
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
-let g:auto_save_silent = 1  " do not display the auto-save notification
-
+"
+" """""""""""""""""""""'""""""""""'""autosave""'""""""""""'"""""""""""""""""""""
+" let g:auto_save = 1  " enable AutoSave on Vim startup
+" let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+" let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+" let g:auto_save_silent = 1  " do not display the auto-save notification
+"
 """""""""""""""""""""""""""""""""""NERD Tree""""""""""""""""""""""""""""""""""""
 "不显示帮助信息
  let NERDTreeMinimalUI=1
