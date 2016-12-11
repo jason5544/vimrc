@@ -51,7 +51,7 @@ Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'kien/ctrlp.vim'
 
-Plugin 'mattn/emmet-vim'
+" Plugin 'mattn/emmet-vim'
 
 " Plugin 'vim-scripts/vim-auto-save'
 
@@ -93,70 +93,6 @@ filetype plugin indent on    " required 允许插件,根据文件类型使用相
 " Put your non-Plugin stuff after this line
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""新建.c,.h,.sh,.java文件，自动插入文件头"""""""""""""""""""""""""""""""" 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()" 
-
-""定义函数SetTitle，自动插入文件头 
-
-func SetTitle() 
-
-    "如果文件类型为.sh文件 
-
-    if &filetype == 'sh' 
-
-        call setline(1,"\#########################################################################") 
-
-        call append(line("."), "\# File Name: ".expand("%")) 
-
-        call append(line(".")+1, "\# Author: Jason Ding") 
-
-        call append(line(".")+2, "\# mail: dinglvhn@gmail.com") 
-
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
-
-        call append(line(".")+4, "\#########################################################################") 
-
-        call append(line(".")+5, "\#!/bin/bash") 
-
-        call append(line(".")+6, "") 
-
-    else 
-
-        call setline(1, "/*************************************************************************") 
-
-        call append(line("."), "    > File Name: ".expand("%")) 
-
-        call append(line(".")+1, "    > Author: Jason Ding") 
-
-        call append(line(".")+2, "    > Mail: dinglvhn@gmail.com") 
-
-        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
-
-        call append(line(".")+4, " ************************************************************************/") 
-
-        call append(line(".")+5, "")
-
-    endif
-
-    "新建文件后，自动定位到文件末尾
-
-    autocmd BufNewFile * normal G
-
-endfunc 
-
-"""""""""""""py文件头""""""""""""""""""""""""""
-autocmd bufnewfile *.py call HeaderPython()
-function HeaderPython()
-    call setline(1, "#!/usr/bin/env python3")
-    call append(1, "# -*- coding: utf-8 -*-")
-    normal G
-    normal o
-    normal o
-endf
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""键盘命令""""""""""""""""""""""""""""""""""""""""""""
@@ -179,7 +115,7 @@ map <F12> gg=G
 
 vmap <C-C> "+y
 
-"""""""""黏贴"""""""""""""
+""黏贴"""""""
 nmap <C-V> "+p
 
 "去空行  
@@ -204,37 +140,37 @@ map <C-F3> \be
 
 "C，C++ 按F5编译运行
 
-map <F5> :call CompileRunGcc()<CR>
+ map <F5> :call CompileRunGcc()<CR>
 
-func! CompileRunGcc()
+ func! CompileRunGcc()
 
-    exec "w"
+     exec "w"
 
-    if &filetype == 'c'
+     if &filetype == 'c'
 
-        exec "!g++ % -o %<"
+         exec "!g++ % -o %<"
 
-        exec "! ./%<"
+         exec "! ./%<"
 
-    elseif &filetype == 'cpp'
+     elseif &filetype == 'cpp'
 
-        exec "!g++ % -o %<"
+         exec "!g++ % -o %<"
 
-        exec "! ./%<"
+         exec "! ./%<"
 
-    elseif &filetype == 'java' 
+     elseif &filetype == 'java' 
 
-        exec "!javac %" 
+         exec "!javac %" 
 
-        exec "!java %<"
+         exec "!java %<"
 
-    elseif &filetype == 'sh'
+     elseif &filetype == 'sh'
 
-        :!./%
+         :!./%
 
-    endif
+     endif
 
-endfunc
+ endfunc
 
 "C,C++的调试
 
@@ -249,6 +185,10 @@ func! Rungdb()
     exec "!gdb ./%<"
 
 endfunc
+
+"""""""""""""paste"""""""""""""""""""""""""""""
+map <F9> :set paste<CR> 
+map <F10> :set nopaste<CR> 
 
 """"""""""插入模式下跳出括号""""""""""""""""""""
 :inoremap <C-L> <ESC>la
@@ -345,7 +285,6 @@ set number
 set history=1000
 
 "临时文件
-
 set backup
 set backupdir=~/.vim/backup
 
@@ -471,6 +410,17 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 
+"""""""""""""py文件头自动添加注释"""""""""""""""""""""""""
+autocmd bufnewfile *.py call HeaderPython()
+function HeaderPython()
+    call setline(1, "#!/usr/bin/env python3")
+    call append(1, "# -*- coding: utf-8 -*-")
+    normal G
+    normal o
+    normal o
+endf
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""" CTags的设定  """"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -565,9 +515,6 @@ endif
 " map g<C-]>:cs find 3 <C-R>=expand(“<cword>”)<CR><CR>
 " map g<C-/>:cs find 0 <C-R>=expand(“<cword>”)<CR><CR>
 
-""""""""""""""""""""""""""""""""""""paste""""""""""""""""""""""""""""""""""""""""
-map <F9> :set paste<CR> 
-map <F10> :set nopaste<CR> 
 
 
 """""""""""""""""""""""""""""""" youcompleteme setting""""""""""""""""""""""""""""""
@@ -643,4 +590,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 """"""""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""
 let g:user_emmet_expandabbr_key = '<C-e>'
+
+
+"""""""""""""""""""""""""""""""""""""""""doxygen toolkit """"""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+" let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Jason Ding"
+let g:DoxygenToolkit_licenseTag="License: GPL 2.0"
 
