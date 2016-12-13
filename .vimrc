@@ -51,6 +51,8 @@ Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'kien/ctrlp.vim'
 
+Plugin 'Chiel92/vim-autoformat'
+
 " Plugin 'mattn/emmet-vim'
 
 " Plugin 'vim-scripts/vim-auto-save'
@@ -62,6 +64,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
+
+" Plugin 'Raimondi/delimitMate' 
 
 " Plugin 'vim-airline/vim-airline'
 
@@ -102,21 +106,28 @@ nmap <leader>w :w!<cr>
 
 nmap <leader>f :find<cr>
 
+" 映射全选 
 
-" 映射全选+复制 ctrl+a
+map <C-A> ggVG
 
-map <C-A> ggVGY
+map! <C-A> <Esc>ggVG
 
-map! <C-A> <Esc>ggVGY
+" 映射剪切
 
-map <F12> gg=G
+vmap <C-X> "+d
 
 " 选中状态下 Ctrl+c 复制
 
 vmap <C-C> "+y
 
-""黏贴"""""""
+" 黏贴
 nmap <C-V> "+p
+
+map! <C-V> <Esc>"+p
+
+" 格式对齐
+
+map <F12> gg=G
 
 "去空行  
 
@@ -140,7 +151,7 @@ map <C-F3> \be
 
 "C，C++ 按F5编译运行
 
- map <F5> :call CompileRunGcc()<CR>
+ map <C-F5> :call CompileRunGcc()<CR>
 
  func! CompileRunGcc()
 
@@ -174,7 +185,7 @@ map <C-F3> \be
 
 "C,C++的调试
 
-map <F8> :call Rungdb()<CR>
+map <C-F8> :call Rungdb()<CR>
 
 func! Rungdb()
 
@@ -510,7 +521,6 @@ endif
 " nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR> 
 " nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 " nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR> 
-"
     
 " map g<C-]>:cs find 3 <C-R>=expand(“<cword>”)<CR><CR>
 " map g<C-/>:cs find 0 <C-R>=expand(“<cword>”)<CR><CR>
@@ -599,5 +609,5 @@ let g:DoxygenToolkit_returnTag="@Returns   "
 " let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
 " let g:DoxygenToolkit_blockFooter="--------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="Jason Ding"
-let g:DoxygenToolkit_licenseTag="License: GPL 2.0"
+let g:DoxygenToolkit_licenseTag="All right reserved"
 

@@ -20,3 +20,5 @@ cd ~/.vim/bundle/YouCompleteMe
 
 *安装markdown
 [markdown安装过程](http://www.jianshu.com/p/24aefcd4ca93)
+
+*安装Doxygen以及 DoxygenToolkit.vim插件
