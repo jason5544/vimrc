@@ -65,7 +65,11 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
 
+Plugin 'jiangmiao/auto-pairs'
+
 " Plugin 'Raimondi/delimitMate' 
+
+" Plugin 'tpope/vim-surround'
 
 " Plugin 'vim-airline/vim-airline'
 
@@ -106,6 +110,10 @@ nmap <leader>w :w!<cr>
 
 nmap <leader>f :find<cr>
 
+" 格式对齐
+
+map <F12> gg=G
+
 " 映射全选 
 
 map <C-A> ggVG
@@ -120,14 +128,10 @@ vmap <C-X> "+d
 
 vmap <C-C> "+y
 
-" 黏贴
+""黏贴"""""""
 nmap <C-V> "+p
 
 map! <C-V> <Esc>"+p
-
-" 格式对齐
-
-map <F12> gg=G
 
 "去空行  
 
@@ -196,6 +200,7 @@ func! Rungdb()
     exec "!gdb ./%<"
 
 endfunc
+
 
 """""""""""""paste"""""""""""""""""""""""""""""
 map <F9> :set paste<CR> 
@@ -376,40 +381,40 @@ set matchtime=1
 
 set scrolloff=3
 
-"""""""""自动补全括号""""""""""""""""""""
-
-:inoremap ( ()<ESC>i
-
-:inoremap ) <c-r>=ClosePair(')')<CR>
-
-" :inoremap { {}<ESC>i
-
-:inoremap { {<CR>}<ESC>O
-
-:inoremap } <c-r>=ClosePair('}')<CR>
-
-:inoremap [ []<ESC>i
-
-:inoremap ] <c-r>=ClosePair(']')<CR>
-
-:inoremap " ""<ESC>i
-
-:inoremap ' ''<ESC>i
-
-function! ClosePair(char)
-
-    if getline('.')[col('.') - 1] == a:char
-
-        return "\<Right>"
-
-    else
-
-        return a:char
-
-    endif
-
-endfunction
-
+" """""""""自动补全括号""""""""""""""""""""
+"
+" :inoremap ( ()<ESC>i
+"
+" :inoremap ) <c-r>=ClosePair(')')<CR>
+"
+" " :inoremap { {}<ESC>i
+"
+" :inoremap { {<CR>}<ESC>O
+"
+" :inoremap } <c-r>=ClosePair('}')<CR>
+"
+" :inoremap [ []<ESC>i
+"
+" :inoremap ] <c-r>=ClosePair(']')<CR>
+"
+" :inoremap " ""<ESC>i
+"
+" :inoremap ' ''<ESC>i
+"
+" function! ClosePair(char)
+"
+"     if getline('.')[col('.') - 1] == a:char
+"
+"         return "\<Right>"
+"
+"     else
+"
+"         return a:char
+"
+"     endif
+"
+" endfunction
+"
 """"""""""""""""""""编码设置""""""""""""""""""""
 
 set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
