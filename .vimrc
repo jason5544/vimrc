@@ -23,7 +23,7 @@ Plugin 'ctags.vim'
 
 " Plugin 'taglist.vim'
 
-Plugin 'todolist.vim'
+" Plugin 'todolist.vim'
 
 Plugin 'EasyGrep'
 
@@ -40,6 +40,8 @@ Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'scrooloose/syntastic'
 
 Plugin 'tpope/vim-fugitive'
+
+" Plugin 'will133/vim-dirdiff'
 
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -106,9 +108,9 @@ filetype plugin indent on    " required 允许插件,根据文件类型使用相
 """""""""""""""""""""""""""""""""键盘命令""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <leader>w :w!<cr>
+" nmap <leader>w :w!<cr>
 
-nmap <leader>f :find<cr>
+" nmap <leader>f :find<cr>
 
 " 格式对齐
 
@@ -234,6 +236,7 @@ set completeopt=menu
 "共享剪贴板  
 
 set clipboard+=unnamed 
+set clipboard+=unnamedplus
 
 
 "make 运行
@@ -440,31 +443,19 @@ endf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""" CTags的设定  """"""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-let Tlist_Sort_Type = "name"    " 按照名称排序  
-
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-
-let Tlist_Compart_Format = 1    " 压缩方式  
-
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
-
-let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
-
-let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
-
-autocmd FileType java set tags+=D:\tools\java\tags  
-
-"autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags  
-
-"let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
+" autocmd FileType java set tags+=D:\tools\java\tags  
+" autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags  
 
 "设置tags  
-
-set tags=tags  
-
-"set autochdir 
+" set tags=tags  
+" set autochdir 
+" ctags
+set tags+=/usr/include/tags
+set tags+=~/.vim/systags
+set tags+=~/.vim/x86_64-linux-gnu-systags
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers = {} 
+let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
 
 """"""""""""""""""""""""""""""" minibufexpl插件的一般设置""""""""""""""""""""""
@@ -481,7 +472,14 @@ set tags=tags
 " let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
 " let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
 " let Tlist_Auto_Open=1 "默认打开Taglist 
-
+" let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
+" let Tlist_Sort_Type = "name"    " 按照名称排序  
+" let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
+" let Tlist_Compart_Format = 1    " 压缩方式  
+" let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
+" let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
+" let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
+"
 
 """"""""""""""""""""""""""""""""""""""""" winManage 配置""""""""""""""""""""""""""
 " let g:winManagerWindowLayout='FileExplorer|TagList'
@@ -534,11 +532,18 @@ endif
 
 """""""""""""""""""""""""""""""" youcompleteme setting""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+" let g:ycm_error_symble = '>>'
+" let g:ycm_warning_symble = '>*'
 let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_key_invoke_completion = '<C-/>'
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+let mapleader = ","
+nnoremap <leader>a :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>i :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>o :YcmCompleter GoToInclude<CR>
 
 """""""""""""""""""""""""""""""""""tagbar"""""""""""""""""""""""""""""""
 
