@@ -31,6 +31,8 @@ Plugin 'Tagbar'
 
 Plugin 'a.vim'
 
+Plugin 'DoxygenToolkit.vim'
+
 Plugin 'SirVer/ultisnips'             " Track the engine.
 
 Plugin 'honza/vim-snippets'  " Snippets are separated from the engine.
@@ -305,7 +307,7 @@ set history=1000
 
 "临时文件
 set backup
-set backupdir=~/.vim/backup
+set backupdir=~/backup
 
 " set nobackup
 " set noswapfile
