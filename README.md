@@ -22,3 +22,96 @@ cd ~/.vim/bundle/YouCompleteMe
 [markdown安装过程](http://www.jianshu.com/p/24aefcd4ca93)
 
 * 安装Doxygen以及 DoxygenToolkit.vim插件
+
+# vim 快捷键
+
+esc 映射 ctrl + [
+复制 ctrl + c
+粘贴 ctrl + v
+全选 ctrl + a
+
+:set paste paste模式
+:set nopaste
+:set list 查看回车 ，tab, 空格
+:set nolist
+
+
+:args 打开多各文件
+:argdo 批处理命令
+
+:set fileencoding=utf-8
+:set fileformat=unix
+:set number
+:cw quickfix模式
+wm
+tb
+:make
+:find
+:new 
+:e 重新编辑 打开文件 载入更改
+
+:marks
+增加书签 
+m a m A
+` + a ` + A
+
+buffer
+:ls
+:b[n]
+
+代码折叠
+za
+
+
+autoformat
+:Autoformat 自动对齐
+
+a.vim
+:A 头文件切换
+
+grep
+:Grep
+
+git
+:Git
+
+doxygen
+:Dox
+:DoxAuthor
+
+ctrlP 插件
+ctrl + p
+ctrl + j 向下
+ctrl + k 向下
+
+ycm提供的文件跳转
+, + a
+, + i
+, + o
+
+ctags 跳转
+ctrl + ]
+ctrl + T
+
+cscopes
+:cs find s
+:cs find c
+
+easy move
+空格 + w
+
+# vim 参数 
+-d 比较不同
+:vertical diffsplit
+不同之间的跳转[c ]c
+dp diff put 
+do diff get
+
+-r 恢复
+
+ctrl + F5 编译运行
+ctrl + f8  调试 
+
+F12 自动对齐
+F11 全屏 
+
