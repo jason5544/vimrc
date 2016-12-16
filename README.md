@@ -43,8 +43,6 @@ esc 映射 ctrl + [
 :set fileformat=unix
 :set number
 :cw quickfix模式
-wm
-tb
 :make
 :find
 :new 
@@ -55,6 +53,27 @@ tb
 m a m A
 ` + a ` + A
 
+跳转
+ctrl + o
+ctrl + i
+''
+
+# * 同字符跳转
+0 $ ^ 同一行 跳转
+
+输入shell
+:! shell命令
+
+H M L 光标在页 头 中 尾
+
+翻页
+ctrl + e 
+ctrl + y
+ctrl + u
+ctrl + d
+ctrl + f
+ctrl + d
+
 buffer
 :ls
 :b[n]
@@ -62,6 +81,13 @@ buffer
 代码折叠
 za
 
+NBtree
+打开文件目录
+wm
+
+tagbar
+打开 tagbar
+tb
 
 autoformat
 :Autoformat 自动对齐
