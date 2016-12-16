@@ -16,37 +16,59 @@ $ sudo apt-get install cscope
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
-* 在.vim中创建backup文件夹
+* 在~/目录创建backup文件夹
 
 * 安装markdown
 [markdown安装过程](http://www.jianshu.com/p/24aefcd4ca93)
 
-* 安装Doxygen以及 DoxygenToolkit.vim插件
+* 安装Doxygen
 
 # vim 快捷键
 
-esc 映射 ctrl + [
+映射
+esc  ctrl + [
 复制 ctrl + c
 粘贴 ctrl + v
 全选 ctrl + a
 
 :set paste paste模式
+
 :set nopaste
+
 :set list 查看回车 ，tab, 空格
+
 :set nolist
 
-
 :args 打开多各文件
+
 :argdo 批处理命令
 
 :set fileencoding=utf-8
+
 :set fileformat=unix
+
 :set number
+
 :cw quickfix模式
-:make
-:find
-:new 
+
+:make 编译
+
+:find 查找文件
+
+:new  创建文件
+
 :e 重新编辑 打开文件 载入更改
+
+:file 重命名
+
+:sp 打开两个窗口
+:vsp  水平打开两个窗口
+
+:close
+:only
+
+ctrl + 方向
+在窗口间移动
 
 :marks
 增加书签 
@@ -56,7 +78,7 @@ m a m A
 跳转
 ctrl + o
 ctrl + i
-''
+返回''
 
 # * 同字符跳转
 0 $ ^ 同一行 跳转
@@ -84,6 +106,7 @@ za
 NBtree
 打开文件目录
 wm
+R 刷新
 
 tagbar
 打开 tagbar
@@ -109,11 +132,12 @@ ctrlP 插件
 ctrl + p
 ctrl + j 向下
 ctrl + k 向下
+F5 刷新
 
 ycm提供的文件跳转
-, + a
-, + i
-, + o
+, + a 声明
+, + i 定义
+, + o 打开文件
 
 ctags 跳转
 ctrl + ]
@@ -129,7 +153,7 @@ easy move
 # vim 参数 
 -d 比较不同
 :vertical diffsplit
-不同之间的跳转[c ]c
+不同行之间的跳转[c ]c
 dp diff put 
 do diff get
 
