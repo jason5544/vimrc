@@ -105,8 +105,14 @@ za
 
 NBtree
 打开文件目录
-wm
+wm 打开nbtree
+r 刷新
 R 刷新
+
+o 打开
+go 打开
+q 退出
+m 信息
 
 tagbar
 打开 tagbar
