@@ -25,21 +25,31 @@ Plugin 'ctags.vim'
 
 " Plugin 'todolist.vim'
 
+" Grep 查找
 Plugin 'EasyGrep'
 
+" tagbar 函数列表
 Plugin 'Tagbar'
+"
+" 头文件切换
 
 Plugin 'a.vim'
 
 Plugin 'DoxygenToolkit.vim'
 
+" snipe 有关
+
 Plugin 'SirVer/ultisnips'             " Track the engine.
 
 Plugin 'honza/vim-snippets'  " Snippets are separated from the engine.
 
+" python 格式
+
 Plugin 'vim-scripts/indentpython.vim'  
 
 " Plugin 'scrooloose/syntastic'
+"
+" git 命令
 
 Plugin 'tpope/vim-fugitive'
 
@@ -47,27 +57,40 @@ Plugin 'tpope/vim-fugitive'
 
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+" 快捷注释
 Plugin 'vim-scripts/tComment'
 
+" 自动创建文件夹
 Plugin 'pbrisbin/vim-mkdir'
 
+" 快速移动光标
 Plugin 'Lokaltog/vim-easymotion'
+
+" ctrl+p 查找文件
 
 Plugin 'kien/ctrlp.vim'
 
+" 自动格式对齐
 Plugin 'Chiel92/vim-autoformat'
 
+" 前端插件
 " Plugin 'mattn/emmet-vim'
 
 " Plugin 'vim-scripts/vim-auto-save'
 
+" 文件树
+
 Plugin 'scrooloose/nerdtree'
+
+" 与Markdown有关
 
 Plugin 'godlygeek/tabular'
 
 Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
+
+" 自动括号匹配
 
 Plugin 'jiangmiao/auto-pairs'
 
@@ -169,19 +192,19 @@ map <C-F3> \be
 
          exec "!g++ % -o %<"
 
-         exec "! ./%<"
+         " exec "! ./%<"
 
      elseif &filetype == 'cpp'
 
          exec "!g++ % -o %<"
 
-         exec "! ./%<"
+         " exec "! ./%<"
 
      elseif &filetype == 'java' 
 
          exec "!javac %" 
 
-         exec "!java %<"
+         " exec "!java %<"
 
      elseif &filetype == 'sh'
 
@@ -214,6 +237,10 @@ map <F10> :set nopaste<CR>
 :inoremap <C-L> <ESC>la
 :inoremap <C-H> <ESC>i
 
+""""""""""""""" fileformat设置""""""""""""""
+" map <leader>fd :set fileformat=doc<CR>
+" map <leader>fu :set fileformat=unix<CR>
+"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""实用设置""""""""""""""""""""""""""""""""""""""""""""""
@@ -431,6 +458,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 
+
 """""""""""""py文件头自动添加注释"""""""""""""""""""""""""
 autocmd bufnewfile *.py call HeaderPython()
 function HeaderPython()
@@ -452,12 +480,12 @@ endf
 " set tags=tags  
 " set autochdir 
 " ctags
-set tags+=/usr/include/tags
-set tags+=~/.vim/systags
-set tags+=~/.vim/x86_64-linux-gnu-systags
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers = {} 
-let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
+" set tags+=/usr/include/tags
+" set tags+=~/.vim/systags
+" set tags+=~/.vim/x86_64-linux-gnu-systags
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_semantic_triggers = {} 
+" let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
 
 
 """"""""""""""""""""""""""""""" minibufexpl插件的一般设置""""""""""""""""""""""
@@ -542,7 +570,7 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_key_invoke_completion = '<C-/>'
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
-let mapleader = ","
+" let mapleader = ","
 nnoremap <leader>a :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>i :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>o :YcmCompleter GoToInclude<CR>
