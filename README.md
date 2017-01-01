@@ -1,6 +1,6 @@
 # vimrc
-* 安装teminator
-$ sudo apt-get intall teminator
+* 安装terminator
+$ sudo apt-get intall terminator
 复制配置文件到~/.config/terminator/
 
 * 安装vundle
@@ -13,6 +13,7 @@ $ sudo apt-get install ctags
 $ sudo apt-get install cscope
 
 * 安装youcompleteme
+sudo apt-get intall clang
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 
@@ -21,7 +22,10 @@ cd ~/.vim/bundle/YouCompleteMe
 * 安装markdown
 [markdown安装过程](http://www.jianshu.com/p/24aefcd4ca93)
 
-* 安装Doxygen
+* 安装doxygen
+sudo apt-get intall doxygen
+
+
 
 # vim 快捷键
 
