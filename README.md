@@ -92,6 +92,8 @@ ctrl + i
 
 H M L 光标在页 头 中 尾
 
+ctrl+o 在插入模式中可以执行临时norml 指令
+
 翻页
 ctrl + e 
 ctrl + y

@@ -319,6 +319,10 @@ set textwidth=0
 " 不要自动折断
 " set nowrap
 
+set linebreak
+set nolist
+
+
 " 要用空格代替制表符
 set expandtab
 
@@ -456,6 +460,10 @@ set termencoding=utf-8
 set encoding=utf-8
 
 set fileencoding=utf-8
+
+"""""""""""""""""""""格式设置""""""""""""""""""
+
+set fileformat=unix
 
 
 
