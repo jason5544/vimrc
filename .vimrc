@@ -45,7 +45,7 @@ Plugin 'honza/vim-snippets'  " Snippets are separated from the engine.
 
 " python 格式
 
-Plugin 'vim-scripts/indentpython.vim'  
+" Plugin 'vim-scripts/indentpython.vim'  
 
 " Plugin 'scrooloose/syntastic'
 "
@@ -84,11 +84,11 @@ Plugin 'scrooloose/nerdtree'
 
 " 与Markdown有关
 
-Plugin 'godlygeek/tabular'
+" Plugin 'godlygeek/tabular'
+"
+" Plugin 'plasticboy/vim-markdown'
 
-Plugin 'plasticboy/vim-markdown'
-
-Plugin 'suan/vim-instant-markdown'
+" Plugin 'suan/vim-instant-markdown'
 
 " 自动括号匹配
 
