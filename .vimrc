@@ -648,7 +648,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 """"""""""""""""""""""""""""""""""""Emmet""""""""""""""""""""""""""""""""""""""""
 let g:user_emmet_expandabbr_key = '<C-e>'
-
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 """""""""""""""""""""""""""""""""""""""""doxygen toolkit """"""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
