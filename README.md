@@ -94,6 +94,8 @@ H M L 光标在页 头 中 尾
 
 ctrl+o 在插入模式中可以执行临时norml 指令
 
+zz 当前行居中
+
 翻页
 ctrl + e 
 ctrl + y

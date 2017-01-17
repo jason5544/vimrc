@@ -74,7 +74,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Chiel92/vim-autoformat'
 
 " 前端插件
-" Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 
 " Plugin 'vim-scripts/vim-auto-save'
 
