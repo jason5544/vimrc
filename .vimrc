@@ -42,7 +42,7 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'SirVer/ultisnips'             " Track the engine.
 
 Plugin 'honza/vim-snippets'  " Snippets are separated from the engine.
-
+"
 " python 格式
 
 " Plugin 'vim-scripts/indentpython.vim'  
@@ -64,7 +64,7 @@ Plugin 'vim-scripts/tComment'
 Plugin 'pbrisbin/vim-mkdir'
 
 " 快速移动光标
-Plugin 'Lokaltog/vim-easymotion'
+" Plugin 'Lokaltog/vim-easymotion'
 
 " ctrl+p 查找文件
 
@@ -457,13 +457,13 @@ set fileencodings=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 
 set termencoding=utf-8
 
-set encoding=utf-8
+" set encoding=utf-8
 
-set fileencoding=utf-8
+" set fileencoding=utf-8
 
 """""""""""""""""""""格式设置""""""""""""""""""
 
-set fileformat=unix
+" set fileformat=unix
 
 
 
@@ -602,7 +602,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""""""""""折叠栏""""""""""""""""""""""""""""""""""""
 "--fold setting--
