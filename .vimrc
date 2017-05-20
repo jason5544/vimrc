@@ -19,7 +19,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'ctags.vim'
+" Plugin 'ctags.vim'
 
 " Plugin 'taglist.vim'
 
@@ -553,7 +553,7 @@ if has("cscope")
 	  set csverb
 
 endif
-
+"
 " nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 
 " nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
 " nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR> 
@@ -575,7 +575,7 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf=0
-let g:ycm_key_invoke_completion = '<C-/>'
+" let g:ycm_key_invoke_completion = '<C-/>'
 " nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 " let mapleader = ","
